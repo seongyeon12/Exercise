@@ -1,29 +1,24 @@
-/*  
-고려할 것 
-*/
-
 var minSetSize = function(arr) {
-  let set = new Set(arr);
-  let newArr = [...set];
-  
-  const subsets = (nums) => {
-    const res = [];
-  
-    const dfs = (start = 0, arr = []) => {
-      res.push(arr);
-      
-      if (arr.length === nums) return;
-  
-      for (let i = start; i < nums.length; i++) {
-        dfs(i + 1, [...arr, nums[i]]);
-      }
-    };
-    dfs();
-  
-    return res;
-  };
+    let obj = {},
+    count = 0;
 
-  console.log(subsets(newArr))
+    for (let num of arr) {
+      num in obj ? obj[num] += 1 : obj[num] = 1;
+    }
+
+    let newArr = Object.values(obj),
+    half = arr.length >> 1,
+    sum = 0,
+    i = 0;
+
+    newArr.sort((a, b) => b - a);
+
+    while (sum < half) {
+      sum += newArr[i++];
+      count++;
+    }
+
+    return count;
 };
 
 console.log(minSetSize([3,3,3,3,5,5,5,2,2,7]))
