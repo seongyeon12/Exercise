@@ -1,9 +1,3 @@
-/*  
-임시배열 하나 세자리 임시 하나
-
-
-*/
-
   var findEvenNumbers = function(digits) {
     let tmp = [];
     /* 3자리 임시 */
