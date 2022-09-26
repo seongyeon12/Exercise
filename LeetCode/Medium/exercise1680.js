@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
- var concatenatedBinary = function(n) {
+  var concatenatedBinary = function(n) {
   let num = ""
   let result = 0
     for (let i = 1; i <= n; i++) {
